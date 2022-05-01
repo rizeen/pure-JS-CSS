@@ -1,1 +1,1 @@
-# pure-JS-CSS
+A complex animation using pure JS and CSS
