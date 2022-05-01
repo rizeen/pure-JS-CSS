@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rizeen</title>
+<style>
+.circles {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    transition: all ease 1s;
+    position: fixed;
+}
+.toprow {
+    top: 100px;
+}
+.bottomrow {
+    top: 240px;
+}
+.pfixed {
+    position: fixed;
+}
+.left {
+    left: 50%;
+    margin-left: -100px;
+}
+.right {
+    right: 50%;
+    margin-right: -100px;
+}
+.three {
+    background-color: #29722b;
+}
+.four {
+    background-color: #25acf6;
+}
+.one {
+    background-color: #ff4c1f;
+}
+.two {
+    background-color: #ffec4f;
+}
+.pill {
+    width: 200px;
+    -webkit-transition: background-color 1s ease all;
+    -moz-transition: background-color 1s ease all;
+    -o-transition: background-color 1s ease all;
+    transition: background-color 1s ease all;
+}
+.myheight {
+    height: 200px;
+    -webkit-transition: background-color 1s ease all;
+    -moz-transition: background-color 1s ease all;
+    -o-transition: background-color 1s ease all;
+    transition: background-color 1s ease all;
+}
+.height3 {
+    margin-top: -140px;
+}
+.circlepart{
+    display: flex;
+    justify-content: center;
+}
+.z4 {
+    z-index: 4;
+}
+.z3 {
+    z-index: 3;
+}
+.z2 {
+    z-index: 2;
+}
+.z1 {
+    z-index: 1;
+}
+.ctrlbtns {
+    position: fixed;
+    top: 350px;
+}
+.ctrlbtns button {
+    background-color: #007475;
+    color: white;
+    padding: 5px 15px;
+    font-size: 12px;
+}
+</style>
+<script type="text/javascript">
+  function myTimer() {
+    var element1 = document.getElementById("one");
+    var element2 = document.getElementById("two");
+    var element3 = document.getElementById("three");
+    var element4 = document.getElementById("four");
+    element1.classList.add("pill");
+    element2.classList.add("myheight");
+    element3.classList.add("myheight");
+    element3.classList.add("height3");
+    element4.classList.add("pill");
+
+    if (element1.classList.contains("one")) {
+        element1.classList.remove("one");
+        element2.classList.remove("two");
+        element3.classList.remove("three");
+        element4.classList.remove("four");
+
+        element1.classList.add("two");
+        element2.classList.add("four");
+        element3.classList.add("one");
+        element4.classList.add("three");
+    } else if(element1.classList.contains("two")){
+        element1.classList.remove("two");
+        element2.classList.remove("four");
+        element3.classList.remove("one");
+        element4.classList.remove("three");
+
+        element1.classList.add("four");
+        element2.classList.add("three");
+        element3.classList.add("two");
+        element4.classList.add("one");
+    } else if(element1.classList.contains("four")){
+        element1.classList.remove("four");
+        element2.classList.remove("three");
+        element3.classList.remove("two");
+        element4.classList.remove("one");
+
+        element1.classList.add("three");
+        element2.classList.add("one");
+        element3.classList.add("four");
+        element4.classList.add("two");
+    } else if(element1.classList.contains("three")){
+        element1.classList.remove("three");
+        element2.classList.remove("one");
+        element3.classList.remove("four");
+        element4.classList.remove("two");
+
+        element1.classList.add("one");
+        element2.classList.add("two");
+        element3.classList.add("three");
+        element4.classList.add("four");
+    }
+    setTimeout(function () {
+        element1.classList.remove("pill");
+        element2.classList.remove("myheight");
+        element3.classList.remove("myheight");
+        element3.classList.remove("height3");
+        element4.classList.remove("pill");
+    loop()
+  }, 1000); //9000 = 9000ms = 9s
+  myVar =  setTimeout(function () {
+    document.getElementById("start").click();
+    loop()
+  }, 2000); //9000 = 9000ms = 9s
+}
+</script>
+</head>
+<body>
+    <div class="circlepart">
+        <div id="one" class="circles toprow left one z4">
+        </div>
+        <div id="two" class="circles toprow right two z3">
+        </div>
+        <div id="three" class="circles bottomrow left three z1">
+        </div>
+        <div id="four" class="circles bottomrow right four z2">
+        </div>
+        <div class="ctrlbtns">
+            <button id="start" class="pfixed left" onclick="myTimer()">Start</button>
+            <button id="stop" class="pfixed right" onclick="clearTimeout(myVar)">Stop</button>
+        </div>        
+    </div>
+</body>
+</html>
